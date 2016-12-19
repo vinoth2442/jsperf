@@ -5,9 +5,7 @@ setup: |
 tests:
   -
     name: github
-    code: |
-      var htmlentities = (function(document){
-      
+    code: |      
       function encode(str){
       	var div = document.createElement('div');
       	div.appendChild(document.createTextNode(str));
@@ -15,17 +13,6 @@ tests:
       	div = null;
       	return str;
       }
-      
-      encode.decode = function(str){
-      	var div = document.createElement('div');
-      	div.innerHTML = str;
-      	str = div.innerText || div.textContent;
-      	div = null;
-      	return str;
-      };
-      return (encode.encode = encode);
-      
-      }(document));
   -
     name: my-code
     code: |
